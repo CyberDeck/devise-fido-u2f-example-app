@@ -1,0 +1,5 @@
+/* I18n */
+.translation_missing {
+  background: red;
+  text-decoration: line-through;
+}
