@@ -7,3 +7,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/CyberDeck/devise-fido-u2f-example-app/badge.svg)](https://coveralls.io/github/CyberDeck/devise-fido-u2f-example-app)
 
 Work in progress - stay tuned.
+
+[gem 'devise-fido-u2f'](https://github.com/cyberdeck/devise-fido-u2f/)
+
+# License
+MIT
