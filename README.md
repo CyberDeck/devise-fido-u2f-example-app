@@ -1,24 +1,9 @@
-# README
+# FIDO U2F Authentication for Rails Devise - Example App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Dependency Status](https://gemnasium.com/badges/github.com/CyberDeck/devise-fido-u2f-example-app.svg)](https://gemnasium.com/github.com/CyberDeck/devise-fido-u2f-example-app)
+[![Security](https://hakiri.io/github/CyberDeck/devise-fido-u2f-example-app/master.svg)](https://hakiri.io/github/CyberDeck/devise-fido-u2f-example-app/master)
+[![Build Status](https://travis-ci.org/CyberDeck/devise-fido-u2f-example-app.svg?branch=master)](https://travis-ci.org/CyberDeck/devise-fido-u2f-example-app)
+[![Code Climate](https://codeclimate.com/github/CyberDeck/devise-fido-u2f-example-app/badges/gpa.svg)](https://codeclimate.com/github/CyberDeck/devise-fido-u2f-example-app)
+[![Coverage Status](https://coveralls.io/repos/github/CyberDeck/devise-fido-u2f-example-app/badge.svg)](https://coveralls.io/github/CyberDeck/devise-fido-u2f-example-app)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Work in progress - stay tuned.
