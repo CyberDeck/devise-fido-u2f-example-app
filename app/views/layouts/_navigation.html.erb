@@ -12,6 +12,7 @@
       <li class="nav-item nav-item-btn"><%= link_to 'Sign in', new_user_session_path(), class: 'btn btn-outline-primary' %></li>
       <li class="nav-item nav-item-btn"><%= link_to 'Register', new_user_registration_path(), class: 'btn btn-outline-secondary' %></li>
     <% else %>
+      <li class="nav-item mr-3"><%= link_to gravatar_for(current_user, size: 38, class: "rounded-circle"), edit_user_registration_path() %></li>
       <li class="nav-item nav-item-btn"><%= link_to 'Sign out', destroy_user_session_path(), method: 'delete', class: 'btn btn-outline-primary' %></li>
     <% end %>
     </ul>
