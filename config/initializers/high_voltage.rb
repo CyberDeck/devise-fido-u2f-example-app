@@ -1,3 +1,4 @@
 HighVoltage.configure do |config|
-    config.home_page = 'home'
+  # Disable default routes because of our own page controller(s)
+  config.routes = false
 end
