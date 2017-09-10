@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/cyberdeck/rails-bootstrap-forms.git
+  revision: ff9173ea36d906e0b76654047139f5204df364d1
+  branch: bootstrap-v4
+  specs:
+    bootstrap_form (2.6.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -76,6 +83,7 @@ GEM
     erubi (1.6.1)
     execjs (2.7.0)
     ffi (1.9.18)
+    forgery (0.6.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     high_voltage (3.0.0)
@@ -219,9 +227,11 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   bootstrap (= 4.0.0.beta)
+  bootstrap_form!
   capybara (~> 2.13)
   cookies_eu
   devise
+  forgery
   high_voltage
   jbuilder (~> 2.5)
   jquery-rails

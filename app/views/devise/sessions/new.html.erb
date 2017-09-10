@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-5 order-2">
+      <%= render 'login_or_registration', log_in: true %>
+    </div>
+    <div class="col-sm-7 order-1">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Example Application</h1>
+            <p class="lead">Please register before login.</p>
+            <p><%= Forgery(:lorem_ipsum).words(100) %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
