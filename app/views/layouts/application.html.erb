@@ -18,7 +18,7 @@
       <%= render 'layouts/navigation' %>
     </header>
     <main role="main">
-      <%= render 'cookies_eu/consent_banner', link: page_path('cookies') %>
+      <%= render 'cookies_eu/consent_banner', link: page_path(id: 'cookies') %>
       <%= render 'layouts/messages' %>
       <%= yield %>
     </main>
