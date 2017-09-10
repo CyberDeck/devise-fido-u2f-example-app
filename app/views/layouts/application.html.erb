@@ -14,8 +14,13 @@
   </head>
 
   <body>
-    <%= render 'layouts/navigation' %>
-    <%= render 'layouts/messages' %>
-    <%= yield %>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+      <%= render 'cookies_eu/consent_banner', link: page_path('cookies') %>
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+    </main>
   </body>
 </html>

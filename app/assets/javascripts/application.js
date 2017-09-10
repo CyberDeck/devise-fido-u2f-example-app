@@ -15,4 +15,5 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require cookies_eu
 //= require_tree .
