@@ -30,4 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  site:
+    short_title: "Example App"
+    long_title: "FIDO U2F with Rails Devise Example Application"
   hello: "Hello world"

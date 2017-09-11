@@ -19,3 +19,9 @@
 coverage/
 
 .byebug_history
+# vim artifacts
+**.swp
+/vendor/cache
+# Environment files that may contain sensitive data
+.env
+.powenv

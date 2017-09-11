@@ -3,16 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title><%= content_for?(:title) ? yield(:title) : "Example Application" %></title>
+    <title><%= content_for?(:title) ? full_title(yield(:title)) : full_title('') %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Example Application Standard description" %>">
-
-    <title>Rails51Bootstrap4Devise43</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <header>
       <%= render 'layouts/navigation' %>

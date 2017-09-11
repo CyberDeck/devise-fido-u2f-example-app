@@ -13,4 +13,14 @@ module ApplicationHelper
     end
     content_tag('div', tag('span', class: "glyphicon glyphicon-user glyph-#{gravatar_class}", "aria-hidden" => "true"), id: "glyph-#{gravatar_class}-#{gravatar_id}", class: "box-#{gravatar_class}")+content_tag('span', image_tag(gravatar_url, image_opts), style: 'display:none', id: "gravatar-#{gravatar_class}-#{gravatar_id}", "aria-hidden" => "true")
   end
+
+  def full_title(page_title)
+    base_title = I18n.t('site.short_title')
+    if page_title.empty?
+      base_title
+    else
+      "#{base_title} | #{page_title}"
+    end
+  end
+
 end
