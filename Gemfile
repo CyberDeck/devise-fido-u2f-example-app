@@ -12,7 +12,7 @@ gem 'rails', '~> 5.1.4'
 gem 'bootstrap', '4.0.0.beta'
 # Bootstrap 4 forms (currently only from a Work-in-Progress branch)
 #gem "bootstrap_form", git: "https://github.com/bootstrap-ruby/rails-bootstrap-forms.git", branch: "bootstrap-v4"
-gem "bootstrap_form", git: "https://github.com/cyberdeck/rails-bootstrap-forms.git", branch: "bootstrap-v4"
+gem "bootstrap_form", github: "cyberdeck/rails-bootstrap-forms", branch: "bootstrap-v4"
 gem 'jquery-rails'
 # Serve static pages
 gem 'high_voltage'
