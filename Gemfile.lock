@@ -80,7 +80,6 @@ GEM
       simplecov (>= 0.7)
       term-ansicolor
       thor
-    database_cleaner (1.6.1)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -260,7 +259,6 @@ DEPENDENCIES
   capybara (~> 2.13)
   cookies_eu
   coveralls
-  database_cleaner
   devise
   forgery
   high_voltage
@@ -271,7 +269,6 @@ DEPENDENCIES
   pry-rescue
   puma (~> 3.7)
   rails (~> 5.1.4)
-  rails-dom-testing
   sass-rails (~> 5.0)
   selenium-webdriver
   simplecov

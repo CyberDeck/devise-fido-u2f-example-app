@@ -53,15 +53,4 @@ class ActiveSupport::TestCase
   # Load fixtures
   fixtures :all
 
-  def setup
-    DatabaseCleaner.strategy = :truncation
-    DatabaseCleaner.clean_with(:truncation)
-    DatabaseCleaner.start
-  end
-
-  def teardown
-    take_failed_screenshot
-    DatabaseCleaner.clean
-  end
-
 end
