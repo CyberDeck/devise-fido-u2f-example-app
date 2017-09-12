@@ -6,6 +6,11 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new [
 SimpleCov.start 'rails' do
   add_filter "/vendor/"
 end
+if Rake.application.top_level_tasks.include? 'test:system'
+  SimpleCov.command_name "test:system"
+else
+  SimpleCov.command_name "test"
+end
 
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
