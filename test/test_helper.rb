@@ -38,13 +38,13 @@ class ActionDispatch::IntegrationTest
         assert_no_link 'Sign in', href: new_user_session_path
         assert_no_link 'Register', href: new_user_registration_path
         assert_link 'Sign out', href: destroy_user_session_path
-        assert_selector "a[href='#{edit_user_registration_path}'] svg"
-
+        # Gravatar is not loaded during test and thus not visible
+        assert_selector "a[href='#{edit_user_registration_path}'] img", visible: false 
       else
         assert_link 'Sign in', href: new_user_session_path
         assert_link 'Register', href: new_user_registration_path
         assert_no_link 'Sign out', href: destroy_user_session_path
-        assert_no_selector "a[href='#{edit_user_registration_path}'] svg"
+        assert_no_selector "a[href='#{edit_user_registration_path}'] img", visible: false 
       end
     end
   end
