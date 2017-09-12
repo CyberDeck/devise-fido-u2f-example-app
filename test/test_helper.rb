@@ -11,6 +11,13 @@ require 'rails/test_help'
 require 'capybara/rails'
 require 'capybara/minitest'
 
+class ActionDispatch::SystemTestCase
+  def teardown
+    take_failed_screenshot
+    super
+  end
+end
+
 class ActionDispatch::IntegrationTest
 
   # Make the Capybara DSL available in all integration tests
@@ -19,9 +26,8 @@ class ActionDispatch::IntegrationTest
   include Capybara::Minitest::Assertions
 
   def teardown
-    take_failed_screenshot
     Capybara.reset_sessions!
-    Capybara.use_default_driver
+    super
   end
 
   # Add more helper methods to be used by all tests here...

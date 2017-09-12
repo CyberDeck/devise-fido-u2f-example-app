@@ -18,7 +18,6 @@ class SiteLayoutsTest < ApplicationSystemTestCase
     assert_basics('')
     # Test layout for main content
     assert_selector 'body main div.jumbotron div.container'
-    assert_text "Lame"
   end 
 
   test " Sign in page and tab register" do
