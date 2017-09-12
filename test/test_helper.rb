@@ -4,6 +4,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new [
   Coveralls::SimpleCov::Formatter
 ]
 SimpleCov.start 'rails' do
+  add_filter "/vendor/"
 end
 
 require File.expand_path('../../config/environment', __FILE__)
