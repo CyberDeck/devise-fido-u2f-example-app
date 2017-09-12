@@ -1,0 +1,9 @@
+      <%= render 'navigation_for_login_or_registration', sign_in: local_assigns[:sign_in] %>
+      <div class="tab-content p-2 border border-top-0" id="tabSignRegisterContent">
+        <div class="tab-pane fade<%= " show active" if local_assigns[:sign_in] %>" id="sign-in" role="tabpanel">
+          <%= render 'devise/sessions/form' %>
+        </div>
+        <div class="tab-pane fade<%= " show active" if !local_assigns[:sign_in] %>" id="register" role="tabpanel">
+          <%= render 'devise/registrations/form' %>
+        </div>
+      </div>

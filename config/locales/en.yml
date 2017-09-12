@@ -33,4 +33,18 @@ en:
   site:
     short_title: "Example App"
     long_title: "FIDO U2F with Rails Devise Example Application"
+    page:
+      sign_in: "Sign in"
+      register: "Register"
+
+  # 'Unofficial' devise translations
+  devise:
+    sessions:
+      sign_in: 'Sign in'
+      sign_out: 'Sign out'
+    passwords:
+      forgot_password: 'Forgot your password? Get reset instructions...'
+    registrations:
+      register: 'Register'
+
   hello: "Hello world"

@@ -2,5 +2,5 @@
   <%= f.email_field :email, autofocus: true %>
   <%= f.password_field :password, autocomplete: "off", help: ("#{@minimum_password_length} characters minimum required" if @minimum_password_length)  %>
   <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  <%= f.submit "Register" %>
+  <%= f.submit t('devise.registrations.register') %>
 <% end %>
