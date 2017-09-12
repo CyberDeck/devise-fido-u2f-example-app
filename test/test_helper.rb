@@ -32,18 +32,20 @@ class ActionDispatch::IntegrationTest
   end
 
   def assert_basic_links(signed_in: false, user: nil)
-    assert_link 'Home', href: root_path
-    if signed_in
-      assert_no_link 'Sign in', href: new_user_session_path
-      assert_no_link 'Register', href: new_user_registration_path
-      assert_link 'Sign out', href: destroy_user_session_path
-      assert_selector "a[href='#{edit_user_registration_path}'] svg"
+    within "header" do
+      assert_link 'Home', href: root_path
+      if signed_in
+        assert_no_link 'Sign in', href: new_user_session_path
+        assert_no_link 'Register', href: new_user_registration_path
+        assert_link 'Sign out', href: destroy_user_session_path
+        assert_selector "a[href='#{edit_user_registration_path}'] svg"
 
-    else
-      assert_link 'Sign in', href: new_user_session_path
-      assert_link 'Register', href: new_user_registration_path
-      assert_no_link 'Sign out', href: destroy_user_session_path
-      assert_no_selector "a[href='#{edit_user_registration_path}'] svg"
+      else
+        assert_link 'Sign in', href: new_user_session_path
+        assert_link 'Register', href: new_user_registration_path
+        assert_no_link 'Sign out', href: destroy_user_session_path
+        assert_no_selector "a[href='#{edit_user_registration_path}'] svg"
+      end
     end
   end
 end

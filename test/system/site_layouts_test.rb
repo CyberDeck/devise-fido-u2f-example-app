@@ -16,17 +16,30 @@ class SiteLayoutsTest < ApplicationSystemTestCase
     assert_selector 'body main div.jumbotron div.container'
   end 
 
-  test "Sign in page" do
+  test "Combined Sign in and register page" do
     visit root_path
-    click_link 'Sign in'
-    assert_title full_title('Sign in')
+    within "header" do
+      click_link I18n.t('devise.sessions.sign_in')
+    end
+    assert_title full_title(I18n.t('site.page.sign_in'))
     assert_basics('')
-    assert_text I18n.t('devise.sessions.sign_in')
-    assert_field User.human_attribute_name(:email), type: 'email'
-    assert_field User.human_attribute_name(:password), type: 'password'
-    assert_field User.human_attribute_name(:remember_me), type: 'checkbox'
-    assert_button I18n.t('devise.sessions.sign_in')
-    assert_link I18n.t('devise.passwords.forgot_password'), href: new_user_password_path()
+    within "main" do
+      assert_text I18n.t('devise.sessions.sign_in')
+      assert_text I18n.t('devise.registrations.register')
+      # Sign_in
+      assert_field User.human_attribute_name(:email), type: 'email'
+      assert_field User.human_attribute_name(:password), type: 'password'
+      assert_field User.human_attribute_name(:remember_me), type: 'checkbox'
+      assert_button I18n.t('devise.sessions.sign_in')
+      assert_link I18n.t('devise.passwords.forgot_password'), href: new_user_password_path()
+
+      # Register
+      click_link I18n.t('devise.registrations.register')
+      assert_field User.human_attribute_name(:email), type: 'email'
+      assert_field User.human_attribute_name(:password), type: 'password'
+      assert_field User.human_attribute_name(:password_confirmation), type: 'password'
+      assert_button I18n.t('devise.registrations.register')
+    end
   end 
 
 end
