@@ -36,6 +36,7 @@ en:
     page:
       sign_in: "Sign in"
       register: "Register"
+      settings: "Settings"
 
   # 'Unofficial' devise translations
   devise:
@@ -46,5 +47,6 @@ en:
       forgot_password: 'Forgot your password? Get reset instructions...'
     registrations:
       register: 'Register'
+      update: 'Update'
 
   hello: "Hello world"
