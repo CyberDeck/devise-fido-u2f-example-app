@@ -48,5 +48,6 @@ en:
     registrations:
       register: 'Register'
       update: 'Update'
+      remove_account: 'Cancel my account'
 
   hello: "Hello world"

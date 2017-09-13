@@ -28,7 +28,6 @@ class SettingsPageTest < ApplicationSystemTestCase
       click_button I18n.t('devise.registrations.update')
     end
     assert @user.reload.email, 'new@example.com'
-    take_screenshot
   end
 
   test "settings page changing password" do
@@ -46,4 +45,14 @@ class SettingsPageTest < ApplicationSystemTestCase
     click_link I18n.t('devise.sessions.sign_out')
     sign_in_as_user(password: 'mynewpassword23')
   end
+
+  test "settings remove account" do
+    id = @user.id
+    accept_confirm do
+      click_button I18n.t('devise.registrations.remove_account')
+    end
+    assert_text I18n.t('devise.registrations.destroyed')
+    assert User.exists?(id: id) == false
+  end
+
 end
