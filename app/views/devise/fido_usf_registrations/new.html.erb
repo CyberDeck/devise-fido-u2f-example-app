@@ -1,11 +1,25 @@
-<h2>Register key</h2>
-<p>Please insert the key and press the button within 15 seconds</p>
-<p id="waiting">Waiting...</p>
-<p id="error" style="display: none;"></p>
-
-<%= form_tag user_fido_usf_registration_path(), method: 'post' do %>
-  <%= hidden_field_tag :response %>
-<% end %>
+<% provide(:title, t('site.page.register_2fa')) -%>
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-6">
+      <h3><%= t('site.page.register_2fa') %></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      Text
+    </div>
+    <div class="col-md-6">
+      <p>Please insert the key and press the button within 15 seconds</p>
+      <p id="waiting">Waiting...</p>
+      <p id="error" style="display: none;"></p>
+      
+      <%= form_tag user_fido_usf_registration_path(), method: 'post' do %>
+        <%= hidden_field_tag :response %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <script>
   var appId = <%= @app_id.to_json.html_safe %>;
