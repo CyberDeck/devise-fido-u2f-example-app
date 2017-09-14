@@ -8,6 +8,10 @@ class SettingsPageTest < ApplicationSystemTestCase
     sign_in_as_user()
     visit edit_user_registration_path
     assert_basics(I18n.t('site.page.settings'))
+    # Remove EU Consent banner - some chrome versions complain that it hides the Remove Account button
+    within 'div[class="cookies-eu js-cookies-eu"]' do
+      click_button "OK"
+    end
   end
 
   def assert_basics(title)
@@ -48,15 +52,21 @@ class SettingsPageTest < ApplicationSystemTestCase
 
   test "settings remove account" do
     id = @user.id
-    # Remove EU Consent banner - some chrome versions complain that it hides the Remove Account button
-    within 'div[class="cookies-eu js-cookies-eu"]' do
-      click_button "OK"
-    end
     accept_confirm do
       click_button I18n.t('devise.registrations.remove_account')
     end
     assert_text I18n.t('devise.registrations.destroyed')
     assert User.exists?(id: id) == false
+  end
+
+  test "settings should allow to register FIDO U2F devices" do
+    assert_link I18n.t('devise.registrations.register_2fa')
+    click_link I18n.t('devise.registrations.register_2fa')
+    
+    # Register 2FA Device page
+    assert_title full_title(I18n.t('site.page.register_2fa'))
+    assert_basic_links(signed_in: true, user: @user)
+    assert_translations
   end
 
 end

@@ -37,6 +37,7 @@ en:
       sign_in: "Sign in"
       register: "Register"
       settings: "Settings"
+      register_2fa: 'Register a new FIDO U2F Device'
 
   # 'Unofficial' devise translations
   devise:
@@ -47,6 +48,7 @@ en:
       forgot_password: 'Forgot your password? Get reset instructions...'
     registrations:
       register: 'Register'
+      register_2fa: 'Register new FIDO U2F device'
       update: 'Update'
       remove_account: 'Cancel my account'
 

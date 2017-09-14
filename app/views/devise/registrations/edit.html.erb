@@ -23,6 +23,14 @@
     <% end %>
   <% end %>
   <hr>
+  <%= settings_row("FIDO U2F Devices", "Your registered FIDO U2F devices for a more secure authentication with a second factor") do %>
+    <% if current_user.fido_usf_devices.empty? %>
+      <p>No devices registered.</p>
+      <p><%= link_to t('devise.registrations.register_2fa'), new_user_fido_usf_registration_path(), class: "btn btn-primary" %>
+    <% else %>
+    <% end %>
+  <% end %>
+  <hr>
   <%= settings_row("Remove Account", "", decorate: "text-danger") do %>
     <p>Unhappy? If you remove your account all your data will be <strong>permanently</strong> lost. </p>
     <p><%= button_to t('devise.registrations.remove_account'), registration_path(resource_name), class: "btn btn-danger", data: { confirm: "Are you sure?" }, method: :delete %></p>

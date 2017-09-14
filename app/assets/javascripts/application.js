@@ -16,4 +16,5 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require cookies_eu
+//= require u2f-api
 //= require_tree .
