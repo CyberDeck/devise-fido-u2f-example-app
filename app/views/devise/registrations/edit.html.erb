@@ -1,5 +1,5 @@
 <% provide(:title, t('site.page.settings')) -%>
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
   <%= settings_row("Public Avatar", "Your profile's public avatar") do %>
     <div class="clearfix">
       <div style="float: left" class="mr-2"><%= gravatar_for(current_user, size: 200, id: 'big-gravatar', class: "rounded-circle") %></div>

@@ -48,6 +48,10 @@ class SettingsPageTest < ApplicationSystemTestCase
 
   test "settings remove account" do
     id = @user.id
+    # Remove EU Consent banner - some chrome versions complain that it hides the Remove Account button
+    within 'div[class="cookies-eu js-cookies-eu"]' do
+      click_button "OK"
+    end
     accept_confirm do
       click_button I18n.t('devise.registrations.remove_account')
     end
