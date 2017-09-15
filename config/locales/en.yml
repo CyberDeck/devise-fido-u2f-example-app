@@ -34,6 +34,7 @@ en:
     short_title: "Example App"
     long_title: "FIDO U2F with Rails Devise Example Application"
     page:
+      cookies: "Cookies"
       sign_in: "Sign in"
       register: "Register"
       settings: "Settings"
