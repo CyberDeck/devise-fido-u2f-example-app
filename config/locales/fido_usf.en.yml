@@ -1,21 +1,21 @@
 en:
   fido_usf:
     pages:
-      devices: "2FA Devices"
+      devices: "FIDO U2F Devices"
 
     flashs:
       device:
         removed:  "Device removed."
-        registered:  "New 2FA device successfully registered."
+        registered:  "New FIDO U2F device successfully registered."
 
   common:
     actions: 'Actions'
 
   forms:
     device:
-      add: "Add 2FA Device"
+      add: "Add FIDO U2F Device"
       delete: "Delete"
-      delete_confirm: "Do you really want to delete the 2FA device \"%{device_name}\"?"
+      delete_confirm: "Do you really want to delete the FIDO U2F device \"%{device_name}\"?"
 
   activerecord:
     attributes:

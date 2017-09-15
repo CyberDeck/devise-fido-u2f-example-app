@@ -2,5 +2,5 @@
   <% flash.clear %>
   setError("<%= escape_javascript @error_message %>");
 <% else %>
-  setSuccess();
+  setSuccess("<%= escape_javascript render partial: 'devise/fido_usf_registrations/success' %>");
 <% end -%>

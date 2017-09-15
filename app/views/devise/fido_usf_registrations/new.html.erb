@@ -33,15 +33,13 @@
         <div class="card-header">
           FIDO U2F Registration Success
         </div>
-        <div class="card-body">
-          <p class="card-text text-success">Your device was registered successfully. Redirecting you back to your settings page in three seconds...</p>
-          <%= link_to 'Back', edit_user_registration_path(), id:"back", class: "btn btn-success" %>
+        <div class="card-body" id="success-text">
         </div>
       </div>
     </div>
   </div>
 </div>
-<%= form_with url: user_fido_usf_registration_path() do |f| %>
+<%= form_with id: "form-register", url: user_fido_usf_registration_path() do |f| %>
   <%= f.hidden_field :response %>
 <% end %>
 <script>
@@ -53,6 +51,7 @@
   var $back = document.getElementById('back');
   var $error_text = document.getElementById('error-text');
   var $success = document.getElementById('success');
+  var $success_text = document.getElementById('success-text');
   var errorMap = {
     1: 'Unknown error, try again.',
     2: "Bad request error, try again." ,
@@ -71,13 +70,10 @@
     setError(errorMap[code]);
   };
 
-  var setSuccess = function() {
+  var setSuccess = function(text) {
     $waiting.style.display = 'none';
     $success.style.display = 'block';
-    // Click ok after x seconds
-    setTimeout(function() {
-      Rails.fire(back, 'click');
-    }, 3000);
+    $success_text.innerHTML = text;
   };
 
   u2f.register(appId, registerRequests, signRequests, function(registerResponse) {
@@ -87,8 +83,8 @@
       return setErrorCode(registerResponse.errorCode);
     }
 
-    form = document.forms[0];
-    response = document.querySelector('[name=response]');
+    form = $('#form-register')[0]
+    response = $('#form-register [name=response]')[0];
 
     response.value = JSON.stringify(registerResponse);
 
