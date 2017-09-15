@@ -59,14 +59,4 @@ class SettingsPageTest < ApplicationSystemTestCase
     assert User.exists?(id: id) == false
   end
 
-  test "settings should allow to register FIDO U2F devices" do
-    assert_link I18n.t('devise.registrations.register_2fa')
-    click_link I18n.t('devise.registrations.register_2fa')
-    
-    # Register 2FA Device page
-    assert_title full_title(I18n.t('site.page.register_2fa'))
-    assert_basic_links(signed_in: true, user: @user)
-    assert_translations
-  end
-
 end

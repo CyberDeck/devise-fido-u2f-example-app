@@ -34,8 +34,9 @@ class ActionDispatch::IntegrationTest
       end
     end
   end
+
   def set_hidden_field(name, value)
-    page.find("input[name=#{name}]", visible: false).set(value)
+    execute_script("return $('input[name=#{name}]')[0].value = '#{value}';")
   end
 
   def submit_form!(locator)
@@ -48,64 +49,27 @@ class ActionDispatch::IntegrationTest
     form.submit!
   end
 
-  def javascript_parser
-    @parser ||= RKelly::Parser.new
-  end
-
-  def find_ast_for_variable_assignment(ast, variable)
-    ast.each do |node| 
-      if node.class == RKelly::Nodes::VarStatementNode 
-        node.each do |var| 
-          if var.class == RKelly::Nodes::VarDeclNode
-            if var.name == variable
-              return var.value
-            end
-          end
-        end
-      end
-    end
-    return nil
-  end
-
   def find_javascript_assignment_for_array(page, variable)
-    page.all('body script', visible: false).each do |el|
-      ast = javascript_parser.parse(el.text(:all))
-      assignment = find_ast_for_variable_assignment(ast, variable)
-      if assignment.first.class == RKelly::Nodes::AssignExprNode
-        value = assignment.first.value
-        return JSON.parse(value.to_ecma)
-      end
-    end
-    return nil
+    js = page.all('body script', visible: false)[0].text(:all)
+    array = js.gsub(/.*#{variable} = ([^;]+).*/,'\1').to_s
+    return JSON.parse(array)
   end
 
   def find_javascript_assignment_for_string(page, variable)
-    page.all('body script', visible: false).each do |el|
-      ast = javascript_parser.parse(el.text(:all))
-      assignment = find_ast_for_variable_assignment(ast, variable)
-      if assignment.first.class == RKelly::Nodes::AssignExprNode
-        value = assignment.first.value
-        str = value.value
-        return str[1..-2] if str.chr == "'"
-        return str[1..-2] if str.chr == '"'
-        return "Unknown"
-      end
-    end
-    return nil
+    js = page.all('body script', visible: false)[0].text(:all)
+    return js.gsub(/.*#{variable} = "([^"]+).*/,'\1').to_s
   end
 
-  def create_user(options={})
-    @user ||= begin
-      user = User.create!(
-        email: options[:email] || 'user@test.com',
-        password: options[:password] || '12345678',
-        password_confirmation: options[:password] || '12345678',
-        created_at: Time.now.utc
-      )
-      user.lock_access! if options[:locked] == true
-      create_u2f_device(user, options[:usf_device][:key_handle], options[:usf_device][:public_key], options[:usf_device][:certificate]) if options[:usf_device]
-      user
-    end
+  def create_u2f_device(user, key_handle, public_key, certificate, attributes={})
+    attrib = {
+      user: user,
+      name: 'Unnamed 1',
+      key_handle: key_handle,
+      public_key: public_key,
+      certificate: certificate,
+      counter: 0,
+      last_authenticated_at: Time.now}.update(attributes)
+    FidoUsf::FidoUsfDevice.create!(attrib)
   end
 
   def sign_in_as_user(options={}, &block)
@@ -117,6 +81,14 @@ class ActionDispatch::IntegrationTest
       yield if block_given?
       click_button 
     end
+  end
+
+  def setup_u2f_with_appid(app_id)
+    device = U2F::FakeU2F.new(app_id)
+    key_handle = U2F.urlsafe_encode64(device.key_handle_raw)
+    certificate = Base64.strict_encode64(device.cert_raw)
+    public_key = device.origin_public_key_raw
+    {device: device, key_handle: key_handle, certificate: certificate, public_key: public_key}
   end
 
   protected

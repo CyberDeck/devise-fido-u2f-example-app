@@ -53,6 +53,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'simplecov'
   gem 'coveralls'
+  gem 'rkelly-remix'
 end
 
 group :development do
