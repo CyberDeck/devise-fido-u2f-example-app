@@ -34,16 +34,17 @@ module ApplicationHelper
   end
 
   def settings_row(head, subline, options={}, &block) 
-    decorate = option_value(options[:decorate], "")
-    width = option_value(options[:width], "9")
+    options.reverse_merge!(width: 9)
+
+    heading = options.key?(:decorate) ? content_tag(:h3, head, class: "#{options[:decorate]}") : content_tag(:h3, head)
+    heading_subline = options.key?(:decorate) ? content_tag(:p, subline, class: "text-muted #{options[:decorate]}") : content_tag(:p, subline, class: "text-muted")
+    content = options.key?(:id) ? content_tag(:div, class: "col-lg-#{options[:width]}", id: options[:id]) { yield } : content_tag(:div, class: "col-lg-#{options[:width]}") { yield }
+
     content_tag(:div, class: 'row') do
       content_tag(:div, class: 'col-lg-3') do
-        content_tag(:h3, head, class: "#{decorate}") +
-        content_tag(:p, subline, class: "text-muted #{decorate}")
+        heading + heading_subline
       end + 
-      content_tag(:div, class: "col-lg-#{width}") do
-        yield
-      end
+      content
     end
   end
 end

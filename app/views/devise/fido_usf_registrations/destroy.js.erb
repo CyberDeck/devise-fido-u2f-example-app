@@ -1,3 +1,3 @@
 $('#device_<%= @fade_out_id %>').fadeOut(400, function () { 
-  $('#devices').html('<%= j(render(partial: 'devise/fido_usf_registrations/device', collection: @devices)) %>') 
+  $('#fido-usf-devices').html('<%= escape_javascript(render partial: 'devise/registrations/fido_usf_devices') %>') 
 } );
