@@ -3,7 +3,13 @@ require "application_system_test_case"
 class FidoUsfDevicesPageTest < ApplicationSystemTestCase
   include ApplicationHelper
   
-  setup do
+  def assert_basics(title)
+    assert_title full_title(title)
+    assert_basic_links(signed_in: true, user: @user)
+    assert_translations
+  end
+
+  test "settings should allow to register FIDO U2F devices and to login with" do
     @user = users(:user)
     sign_in_as_user()
     visit edit_user_registration_path
@@ -12,15 +18,7 @@ class FidoUsfDevicesPageTest < ApplicationSystemTestCase
     within 'div[class="cookies-eu js-cookies-eu"]' do
       click_button "OK"
     end
-  end
 
-  def assert_basics(title)
-    assert_title full_title(title)
-    assert_basic_links(signed_in: true, user: @user)
-    assert_translations
-  end
-
-  test "settings should allow to register FIDO U2F devices" do
     assert_link I18n.t('devise.registrations.register_2fa')
     click_link I18n.t('devise.registrations.register_2fa')
     
@@ -40,21 +38,16 @@ class FidoUsfDevicesPageTest < ApplicationSystemTestCase
     click_button I18n.t('devise.registrations.register')
     assert_text I18n.t('fido_usf.flashs.device.registered')
     assert_text 'My new 2FA token'
+
+    click_link I18n.t('devise.sessions.sign_out')
+    sign_in_as_user()
+    assert_text I18n.t('site.page.authenticate_2fa')
+    
+    challenge = find_javascript_assignment_for_string(page, 'challenge')
+    set_hidden_field 'response', token[:device].sign_response(challenge)
+    execute_script("return document.forms[0].submit()");
+
+    assert_basics('')
   end
 
-  #test "sign in should allow to authenticate with valid FIDO U2F devices" do
-  #  # Got to root_url to grab appId from browser address bar
-  #  visit root_url
-  #  appId = execute_script("return window.location.origin")
-
-  #  token = setup_u2f_with_appid(appId)
-
-  #  binding.pry
-  #  @user = create_user({usf_device: token})
-  #  puts(@user)
-  #  sign_in_as_user()
-
-  #  take_screenshot
-
-  #end
 end

@@ -17,7 +17,6 @@ require 'rails/test_help'
 require 'capybara/rails'
 require 'capybara/minitest'
 require 'support/integration'
-require 'rkelly'
 
 class ActionDispatch::SystemTestCase
   def teardown

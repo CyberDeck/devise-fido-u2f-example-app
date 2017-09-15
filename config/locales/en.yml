@@ -53,5 +53,8 @@ en:
       register_2fa: 'Register new FIDO U2F device'
       update: 'Update'
       remove_account: 'Cancel my account'
+    fido_usf_authentications:
+      user:
+        signed_in: "Signed in successfully."
 
   hello: "Hello world"
