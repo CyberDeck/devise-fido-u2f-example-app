@@ -1,7 +1,35 @@
-<h2>Authenticate key</h2>
-<p>Please insert one of your registered keys and press the button within 15 seconds</p>
-<p id="waiting">Waiting...</p>
-<p id="error" style="display: none;"></p>
+<% provide(:title, t('site.page.authenticate_2fa')) -%>
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="jumbotron col-12">
+      <h3><%= t('site.page.authenticate_2fa') %></h3>
+      <p>You activated two-factor authentication for your account by registering one or more FIDO U2F devices.</p>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-7">
+      <div id="waiting" class="card">
+        <div class="card-header">
+          FIDO U2F Authentication
+        </div>
+        <div class="card-body">
+          <p class="card-text">Please insert one of your registered FIDO U2F devices and press its button within 15 seconds...</p>
+          <%= link_to 'Cancel', root_path(), class: "btn btn-secondary" %>
+        </div>
+      </div>
+      <div id="error" style="display: none;" class="card border-danger">
+        <div class="card-header">
+          FIDO U2F Authentication Error
+        </div>
+        <div class="card-body">
+          <p id="error-text" class="card-text text-danger">None</p>
+          <%= link_to 'Cancel', root_path(), class: "btn btn-secondary" %>
+          <%= link_to 'Try again', new_user_fido_usf_authentication_path(), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <%= form_tag user_fido_usf_authentication_path(), method: 'post' do %>
   <%= hidden_field_tag :response %>
 <% end %>
@@ -11,6 +39,7 @@
   var challenge = <%= @challenge.to_json.html_safe %>;
   var $waiting = document.getElementById('waiting');
   var $error = document.getElementById('error');
+  var $error_text = document.getElementById('error-text');
   var errorMap = {
     1: 'Unknown error, try again',
     2: "Bad request error, try again" ,
@@ -21,7 +50,7 @@
   var setError = function(code) {
     $waiting.style.display = 'none';
     $error.style.display = 'block';
-    $error.innerHTML = errorMap[code];
+    $error_text.innerHTML = errorMap[code];
   };
 
   u2f.sign(appId, challenge, signRequests, function(signResponse) {

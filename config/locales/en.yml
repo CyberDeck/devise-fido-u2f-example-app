@@ -38,6 +38,7 @@ en:
       register: "Register"
       settings: "Settings"
       register_2fa: 'Register a new FIDO U2F Device'
+      authenticate_2fa: 'Two-Factor Authentication'
 
   # 'Unofficial' devise translations
   devise:
