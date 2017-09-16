@@ -22,4 +22,6 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: devise_fido_usf_production
+  username: devise_fido_usf
+  password: <%= ENV['DEVISE_FIDO_USF_DATABASE_PASSWORD'] %>

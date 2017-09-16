@@ -16,8 +16,6 @@ gem "bootstrap_form", github: "cyberdeck/rails-bootstrap-forms", branch: "bootst
 gem 'jquery-rails'
 # Serve static pages
 gem 'high_voltage'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -53,6 +51,11 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'simplecov'
   gem 'coveralls'
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
 end
 
 group :development do
