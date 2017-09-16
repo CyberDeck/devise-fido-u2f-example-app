@@ -8,7 +8,9 @@
 
 Work in progress - stay tuned.
 
-[gem 'devise-fido-u2f'](https://github.com/cyberdeck/devise-fido-u2f/)
+This is the example application for [gem 'devise-fido-u2f'](https://github.com/cyberdeck/devise-fido-u2f/).
+
+You can try it out at: [https://devise-fido-u2f.herokuapp.com/](https://devise-fido-u2f.herokuapp.com/)
 
 # License
 MIT
