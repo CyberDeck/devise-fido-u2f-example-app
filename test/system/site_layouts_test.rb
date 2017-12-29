@@ -3,10 +3,6 @@ require "application_system_test_case"
 class SiteLayoutsTest < ApplicationSystemTestCase
   include ApplicationHelper
   
-  setup do
-    Capybara.current_driver = Capybara.javascript_driver # :selenium by default
-  end
-
   def assert_basics(title)
     assert_title full_title(title)
     assert_basic_links

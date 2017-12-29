@@ -45,9 +45,9 @@ gem 'forgery'
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
-  # Adds support for Capybara system testing and selenium driver
+  # Adds support for Capybara system testing with poltergeist and phantomjs
   gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
+  gem 'poltergeist'
   gem 'rails-controller-testing'
   gem 'simplecov'
   gem 'coveralls'
