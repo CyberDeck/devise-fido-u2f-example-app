@@ -29,10 +29,6 @@ module ApplicationHelper
     end
   end
 
-  def option_value(value, default)
-    value ? value : default
-  end
-
   def settings_row(head, subline, options={}, &block) 
     options.reverse_merge!(width: 9)
 
