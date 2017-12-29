@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Bootstrap 4
-gem 'bootstrap', '4.0.0.beta2.1'
+gem 'bootstrap', '4.0.0.beta3'
 # Bootstrap 4 forms (currently only from a Work-in-Progress branch)
 #gem "bootstrap_form", git: "https://github.com/bootstrap-ruby/rails-bootstrap-forms.git", branch: "bootstrap-v4"
 gem "bootstrap_form", github: "cyberdeck/rails-bootstrap-forms", branch: "bootstrap-v4"
