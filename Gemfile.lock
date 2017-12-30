@@ -87,7 +87,7 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
-    devise_fido_usf (0.1.6)
+    devise_fido_usf (0.1.7)
       devise (>= 3.2)
       rails (>= 4.2)
       thor (>= 0.20.0)
@@ -277,7 +277,7 @@ DEPENDENCIES
   cookies_eu
   coveralls
   devise
-  devise_fido_usf
+  devise_fido_usf (~> 0.1.7)
   forgery
   high_voltage
   jbuilder (~> 2.5)
