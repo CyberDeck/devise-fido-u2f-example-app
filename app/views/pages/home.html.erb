@@ -3,7 +3,8 @@
     <h1 class="display-3">Welcome to <%= t 'site.long_title' %></h1>
     <p>This is the home page for the <%= t 'site.short_title' %> application. This application demonstrates usage of Rails 5.1 together with Bootstrap 4 and Devise 4.3.</p>
     <p>Additionally, it explains how to add the <code>gem 'devise-fido-usf'</code> to Devise which allows for authentication using a second factor, i.e. a FIDO U2F security token like the Yubico key.</p>
-    <p>After registering a user account, you are able to <strong>register FIDO U2F devices</strong> to your account. This enables <strong>two-factor authentication</strong> with such devices for your account. If you are not signed in and trying to visit <%= link_to 'a protected page', protected_pages_path() %> you are <strong>required</strong> to authenticate additionally with your <strong>FIDO U2F token</strong> besides your usual email / password credentials.</p>
+    <p>After registering a user account, you are able to <strong>register FIDO U2F devices</strong> to your <%= link_to 'account', edit_user_registration_path %>. This enables <strong>two-factor authentication</strong> with such devices for your account. If you are not signed in and trying to visit <%= link_to 'a protected page', protected_pages_path %> you are <strong>required</strong> to authenticate additionally with your <strong>FIDO U2F token</strong> besides your usual email / password credentials.</p>
+    <p>Please ensure that you serve this page over an <strong>https</strong> connection, i.e. by using <code>thin start --ssl</code>. Otherweise FIDO U2F authentication will not work.</p>
   </div>
 </div>
 

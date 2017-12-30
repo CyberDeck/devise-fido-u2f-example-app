@@ -28,7 +28,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'cookies_eu'
 # Devise for user registration and authentication
 gem 'devise'
-gem 'devise_fido_usf'
+gem 'devise_fido_usf', '~> 0.1.7'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
