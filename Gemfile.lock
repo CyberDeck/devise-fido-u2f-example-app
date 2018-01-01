@@ -87,7 +87,7 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
-    devise_fido_usf (0.1.7)
+    devise_fido_usf (0.1.8)
       devise (>= 3.2)
       rails (>= 4.2)
       thor (>= 0.20.0)
@@ -248,7 +248,7 @@ GEM
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
     u2f (1.0.0)
-    uglifier (4.1.1)
+    uglifier (4.1.2)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
