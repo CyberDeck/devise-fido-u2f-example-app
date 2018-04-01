@@ -47,6 +47,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    archive-zip (0.11.0)
+      io-like (~> 0.3.0)
     arel (8.0.0)
     autoprefixer-rails (8.2.0)
       execjs
@@ -73,6 +75,9 @@ GEM
       selenium-webdriver
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
+    chromedriver-helper (1.2.0)
+      archive-zip (~> 0.10)
+      nokogiri (~> 1.8)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     cookies_eu (1.6.3)
@@ -112,6 +117,7 @@ GEM
     i18n (1.0.0)
       concurrent-ruby (~> 1.0)
     interception (0.5)
+    io-like (0.3.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -276,6 +282,7 @@ DEPENDENCIES
   bootstrap_form!
   capybara (~> 2.18)
   capybara-selenium
+  chromedriver-helper
   cookies_eu
   coveralls
   devise

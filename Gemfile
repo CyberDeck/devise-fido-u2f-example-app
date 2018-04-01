@@ -45,6 +45,7 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'capybara', '~> 2.18'
   gem 'capybara-selenium'
+  gem 'chromedriver-helper'
   gem 'rails-controller-testing'
   gem 'simplecov'
   gem 'coveralls'
