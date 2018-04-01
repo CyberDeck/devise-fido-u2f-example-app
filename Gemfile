@@ -30,8 +30,6 @@ gem 'cookies_eu'
 gem 'devise'
 gem 'devise_fido_usf', '~> 0.1.7'
 
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
