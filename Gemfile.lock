@@ -95,7 +95,7 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
-    devise_fido_usf (0.1.9)
+    devise_fido_usf (0.1.11)
       devise (>= 3.2)
       rails (>= 4.2)
       thor (>= 0.20.0)
@@ -127,7 +127,7 @@ GEM
     js_cookie_rails (2.2.0)
       railties (>= 3.1)
     json (2.1.0)
-    libv8 (6.7.288.46.1-x86_64-linux)
+    libv8 (6.7.288.46.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -285,7 +285,7 @@ DEPENDENCIES
   cookies_eu
   coveralls
   devise
-  devise_fido_usf (~> 0.1.7)
+  devise_fido_usf (~> 0.1.11)
   forgery
   high_voltage
   jbuilder (~> 2.5)

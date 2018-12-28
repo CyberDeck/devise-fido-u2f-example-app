@@ -27,7 +27,7 @@ gem 'mini_racer'
 gem 'cookies_eu'
 # Devise for user registration and authentication
 gem 'devise'
-gem 'devise_fido_usf', '~> 0.1.7'
+gem 'devise_fido_usf', '~> 0.1.11'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
