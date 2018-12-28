@@ -42,7 +42,7 @@
 <%= form_with id: "form-register", url: user_fido_usf_registration_path() do |f| %>
   <%= f.hidden_field :response %>
 <% end %>
-<script>
+<%= javascript_tag nonce: true do -%>
   var appId = <%= @app_id.to_json.html_safe %>;
   var registerRequests = <%= @registration_requests.to_json.html_safe %>;
   var signRequests = <%= @sign_requests.to_json.html_safe %>;
@@ -90,4 +90,4 @@
 
     Rails.fire(form, 'submit');
   }, 15);
-</script>
+<% end -%>

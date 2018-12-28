@@ -33,7 +33,7 @@
 <%= form_tag user_fido_usf_authentication_path(), method: 'post' do %>
   <%= hidden_field_tag :response %>
 <% end %>
-<script>
+<%= javascript_tag nonce: true do -%>
   var appId = <%= @app_id.to_json.html_safe %>;
   var signRequests = <%= @sign_requests.to_json.html_safe %>;
   var challenge = <%= @challenge.to_json.html_safe %>;
@@ -67,4 +67,4 @@
 
     form.submit();
   }, 15);
-</script>
+<% end -%>
