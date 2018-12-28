@@ -7,23 +7,22 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 5.2.0'
 # Bootstrap 4
-gem 'bootstrap', '4.0.0.beta3'
+gem 'bootstrap', '~> 4.2.1'
 # Bootstrap 4 forms (currently only from a Work-in-Progress branch)
-#gem "bootstrap_form", git: "https://github.com/bootstrap-ruby/rails-bootstrap-forms.git", branch: "bootstrap-v4"
-gem "bootstrap_form", github: "cyberdeck/rails-bootstrap-forms", branch: "bootstrap-v4"
+gem "bootstrap_form"
 gem 'jquery-rails'
 # Serve static pages
 gem 'high_voltage'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
+gem 'mini_racer'
 # EU Cookies Consent
 gem 'cookies_eu'
 # Devise for user registration and authentication
