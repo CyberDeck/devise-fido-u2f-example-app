@@ -19,7 +19,7 @@
           <%= link_to 'Cancel', edit_user_registration_path(), class: "btn btn-secondary" %>
         </div>
       </div>
-      <div id="error" style="display: none;" class="card border-danger">
+      <div id="error" class="d-none card border-danger">
         <div class="card-header">
           FIDO U2F Registration Error
         </div>
@@ -29,7 +29,7 @@
           <%= link_to 'Try again', new_user_fido_usf_registration_path(), class: "btn btn-primary" %>
         </div>
       </div>
-      <div id="success" style="display: none;" class="card border-success">
+      <div id="success" class="d-none card border-success">
         <div class="card-header">
           FIDO U2F Registration Success
         </div>
@@ -61,8 +61,8 @@
   };
 
   var setError = function(text) {
-    $waiting.style.display = 'none';
-    $error.style.display = 'block';
+    $waiting.className += ' d-none';
+    $error.className = $error.className.replace(/\bd-none\b/g, '');
     $error_text.innerHTML = text;
   };
 
@@ -71,8 +71,8 @@
   };
 
   var setSuccess = function(text) {
-    $waiting.style.display = 'none';
-    $success.style.display = 'block';
+    $waiting.className += ' d-none';
+    $success.className = $success.className.replace(/\bd-none\b/g, '');
     $success_text.innerHTML = text;
   };
 

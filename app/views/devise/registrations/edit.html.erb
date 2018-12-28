@@ -2,7 +2,7 @@
 <div class="container mt-5 mb-5">
   <%= settings_row("Public Avatar", "Your profile's public avatar") do %>
     <div class="clearfix">
-      <div style="float: left" class="mr-2"><%= gravatar_for(current_user, size: 200, id: 'big-gravatar', class: "rounded-circle") %></div>
+      <div class="float-left mr-2"><%= gravatar_for(current_user, size: 200, id: 'big-gravatar', class: "rounded-circle") %></div>
       <div>
         <h5>Upload a New Avatar</h5>
         <p>Your profile picture comes from <%= link_to 'Gravatar', 'http://gravatar.com/emails', target: '_blank' %>.<br/>Go there to change the picture associated with your email address.</p>

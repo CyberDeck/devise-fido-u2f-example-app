@@ -17,7 +17,7 @@
           <%= link_to 'Cancel', root_path(), class: "btn btn-secondary" %>
         </div>
       </div>
-      <div id="error" style="display: none;" class="card border-danger">
+      <div id="error" class="d-none card border-danger">
         <div class="card-header">
           FIDO U2F Authentication Error
         </div>
@@ -48,8 +48,8 @@
     5: 'Authentication timed out. Please reload to try again.'
   };
   var setError = function(code) {
-    $waiting.style.display = 'none';
-    $error.style.display = 'block';
+    $waiting.className += ' d-none';
+    $error.className = $error.className.replace(/\bd-none\b/g, '');
     $error_text.innerHTML = errorMap[code];
   };
 
