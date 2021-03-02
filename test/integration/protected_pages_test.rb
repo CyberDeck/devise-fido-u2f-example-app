@@ -3,20 +3,30 @@ require 'test_helper'
 class ProtectedPagesTest  < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
+  def setup
+    @user = users(:user)
+  end
+
+  def warden
+    request.env['warden']
+  end
+
   test "visit without login" do
-    visit protected_pages_path()
-    assert_no_text 'Protected Page'
+    get protected_pages_path()
+    assert_redirected_to new_user_session_path()
   end
 
   test "visit with login" do
-    sign_in_as_user
-    visit protected_pages_path()
-    assert_text 'Protected Page'
+    login_user @user
+    get protected_pages_path()
+    assert_template 'protected_pages/show'
   end
 
   test "visit with wrong login" do
-    sign_in_as_user(password: "notmypassword")
-    visit protected_pages_path()
-    assert_no_text 'Protected Page'
+    get new_user_session_path
+    assert_template 'devise/sessions/new'
+    post user_session_path, params: { user: { email: @user.email, password: "notmypassword" } }
+    assert_not warden.authenticated?(:user)
+    assert_nil warden.user
   end
 end

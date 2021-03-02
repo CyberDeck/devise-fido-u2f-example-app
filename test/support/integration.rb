@@ -1,10 +1,9 @@
 require 'action_dispatch/testing/integration'
 
 class ActionDispatch::IntegrationTest
-  # Make the Capybara DSL available in all integration tests
-  include Capybara::DSL
   # Make `assert_*` methods behave like Minitest assertions
-  include Capybara::Minitest::Assertions
+  #include Capybara::Minitest::Assertions
+  include BulletTest
 
   def teardown
     Capybara.reset_sessions!

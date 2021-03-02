@@ -14,8 +14,10 @@ class FidoUsfDevicesPageTest < ApplicationSystemTestCase
     sign_in_as_user()
     visit edit_user_registration_path
     assert_basics(I18n.t('site.page.settings'))
+
     # Remove EU Consent banner - some chrome versions complain that it hides the Remove Account button
-    within 'div[class="cookies-eu js-cookies-eu"]' do
+    assert_selector 'div.js-cookies-eu'
+    within 'div.js-cookies-eu' do
       click_button "OK"
     end
 

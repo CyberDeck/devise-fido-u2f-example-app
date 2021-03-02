@@ -27,7 +27,7 @@ gem 'mini_racer'
 gem 'cookies_eu'
 # Devise for user registration and authentication
 gem 'devise'
-gem 'devise_fido_usf', '~> 0.1.11'
+gem 'devise_fido_usf', '~> 0.1.14'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
@@ -42,18 +42,25 @@ gem 'forgery'
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
-  gem 'capybara', '~> 2.18'
+  gem 'capybara', '~> 3.18'
   gem 'capybara-selenium'
-  gem 'chromedriver-helper'
+  gem 'webdrivers', '~> 4.0'
   gem 'rails-controller-testing'
   gem 'simplecov'
   gem 'coveralls'
   gem 'sqlite3'
+  gem 'bullet'
 end
 
 group :production do
   gem 'pg'
 end
+
+group :test do
+  gem 'minitest-reporters'
+  gem 'mini_backtrace'
+end
+
 
 group :development do
   gem 'better_errors'
