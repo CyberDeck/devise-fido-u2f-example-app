@@ -47,7 +47,7 @@ group :development, :test do
   gem 'webdrivers', '~> 4.0'
   gem 'rails-controller-testing'
   gem 'simplecov'
-  gem 'coveralls'
+  gem 'coveralls_reborn'
   gem 'sqlite3'
   gem 'bullet'
 end
